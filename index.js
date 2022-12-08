@@ -33,7 +33,7 @@ const inquirer = __importStar(require("inquirer"));
 const chalk_1 = __importDefault(require("chalk"));
 const shell = __importStar(require("shelljs"));
 const figlet_1 = __importDefault(require("figlet"));
-const template = __importStar(require("./utils/template"));
+// const template = __importStar(require("./utils/template"));
 const withTitle = (cli) => (0, figlet_1.default)("Vite React App", function (err, data) {
     if (err) {
         console.log("Something went wrong...");
@@ -43,7 +43,7 @@ const withTitle = (cli) => (0, figlet_1.default)("Vite React App", function (err
     console.clear();
     console.log(data);
     console.log("v0.6.5");
-    console.log(chalk_1.default.dim(`\nReact template configured with
+    console.log(chalk_1.default.dim(`\nVite React template configured with
     ${chalk_1.default.underline.bgYellow.black("SWC Jest")}
     ${chalk_1.default.underline.bgYellow.black("ESLint")}
     ${chalk_1.default.underline.bgYellow.black("Prettier")}
