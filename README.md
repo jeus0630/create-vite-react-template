@@ -1,6 +1,6 @@
 ![record](./record.gif)
 # Create React App Template with ViteJS
-> **`yarn`** is prerequisite for this project!  
+*****`yarn`** is prerequisite for this project!***  
 
 You can create a new React project with this CLI.   
    
