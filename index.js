@@ -42,22 +42,8 @@ const withTitle = (cli) => (0, figlet_1.default)("Vite React App", function (err
     }
     console.clear();
     console.log(data);
-    console.log("v0.6.5");
-    console.log(chalk_1.default.dim(`\nVite React template configured with
-    ${chalk_1.default.underline.bgYellow.black("SWC Jest")}
-    ${chalk_1.default.underline.bgYellow.black("ESLint")}
-    ${chalk_1.default.underline.bgYellow.black("Prettier")}
-    ${chalk_1.default.underline.bgYellow.black("Husky")}
-    ${chalk_1.default.underline.bgYellow.black("lint-staged")}
-    ${chalk_1.default.underline.bgYellow.black("Reset.css")}
-    ${chalk_1.default.underline.bgYellow.black("Emotion")}
-    ${chalk_1.default.underline.bgYellow.black("StoryBook")}
-    ${chalk_1.default.underline.bgYellow.black("React Query")}
-    ${chalk_1.default.underline.bgYellow.black("MSW")}
-    ${chalk_1.default.underline.bgYellow.black("Recoil")}
-    ${chalk_1.default.underline.bgYellow.black("React Router DOM")}
-    ${chalk_1.default.underline.bgYellow.black("Absolute path")}.`));
-    console.log(chalk_1.default.dim(`Template can be found at ${chalk_1.default.underline.blue("https://github.com/jeus0630/react-template")}\n`));
+    console.log(chalk_1.default.dim(`\n\nVite React template configured with\n\n${chalk_1.default.underline.bgYellow.black("SWC Jest")} ${chalk_1.default.underline.bgYellow.black("ESLint")} ${chalk_1.default.underline.bgYellow.black("Prettier")} ${chalk_1.default.underline.bgYellow.black("Husky")} ${chalk_1.default.underline.bgYellow.black("lint-staged")}\n\n${chalk_1.default.underline.bgYellow.black("Reset.css")} ${chalk_1.default.underline.bgYellow.black("Emotion")} ${chalk_1.default.underline.bgYellow.black("StoryBook")} ${chalk_1.default.underline.bgYellow.black("React Query")} ${chalk_1.default.underline.bgYellow.black("MSW")}\n\n${chalk_1.default.underline.bgYellow.black("Recoil")} ${chalk_1.default.underline.bgYellow.black("React Router DOM")} ${chalk_1.default.underline.bgYellow.black("Absolute path")}`));
+    console.log(chalk_1.default.dim(`\nTemplate can be found at\n\n${chalk_1.default.green("https://github.com/jeus0630/react-template")}\n`));
     cli();
 });
 const QUESTIONS = [
@@ -65,13 +51,7 @@ const QUESTIONS = [
         name: "name",
         type: "input",
         message: "Please input a new project name:",
-    },
-    {
-        name: "packageManagerChoice",
-        type: "list",
-        message: "Which package manager do you wish to use:",
-        choices: ["yarn", "npm"],
-    },
+    }
 ];
 const CURR_DIR = process.cwd();
 withTitle(() => inquirer.prompt(QUESTIONS).then((answers) => {
@@ -84,7 +64,7 @@ withTitle(() => inquirer.prompt(QUESTIONS).then((answers) => {
         templateName: projectChoice,
         templatePath,
         tartgetPath,
-        packageManagerChoice: answers["packageManagerChoice"],
+        packageManagerChoice: "yarn",
     };
     if (!createProject(options.tartgetPath)) {
         return;
@@ -113,11 +93,12 @@ function createDirectoryContents(templatePath, projectName) {
         if (SKIP_FILES.indexOf(file) > -1)
             return;
         if (stats.isFile()) {
+            
             // read file content and transform it using template engine
             let contents = fs.readFileSync(origFilePath, "utf8");
-            contents = template.render(contents, { projectName });
+            // contents = template.render(contents, { projectName });
             // write file to destination folder
-            const writePath = path.join(CURR_DIR, projectName, file);
+            const writePath = path.join(CURR_DIR, projectName, file === "_gitignore" ? ".gitignore" : file);
             fs.writeFileSync(writePath, contents, "utf8");
         }
         else if (stats.isDirectory()) {
@@ -132,17 +113,16 @@ function postProcess(options) {
     const isNode = fs.existsSync(path.join(options.templatePath, "package.json"));
     if (isNode) {
         shell.cd(options.tartgetPath);
-        const installCommand = `${options.packageManagerChoice} ${options.packageManagerChoice === "npm" ? "install" : ""}`;
-        console.log(chalk_1.default.dim(`\nRunning ${installCommand}...`));
-        shell.exec(installCommand, () => {
+        shell.exec("git init ; chmod ug+x .husky/* ; chmod ug+x .git/hooks/*", () => {
             console.log(chalk_1.default.underline.bgMagenta.white("\nNew project created successfully!"));
             console.log(chalk_1.default.dim("\n\nChange directory into your project folder:"));
             console.log(chalk_1.default.yellow(`  cd ${options.projectName}`));
-            const runAppCommand = `${options.packageManagerChoice} ${options.packageManagerChoice === "npm" ? "run" : ""} dev`;
+            console.log(chalk_1.default.dim("\nInstall dependencies:"));
+            console.log(chalk_1.default.yellow(`  yarn`));
             console.log(chalk_1.default.dim("\nRun app:"));
-            console.log(chalk_1.default.yellow(`  ${runAppCommand}`));
-            console.log(chalk_1.default.green("\nEnjoy!\n"));
-        });
+            console.log(chalk_1.default.yellow(`  yarn dev`));
+            console.log(chalk_1.default.green("\nEnjoy!\n"));    
+        })
     }
     return true;
 }

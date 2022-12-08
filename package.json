@@ -1,6 +1,6 @@
 {
     "name": "create-vite-react-template",
-    "version": "0.0.1",
+    "version": "0.1.9",
     "description": "Create a React App Template with ViteJS!",
     "main": "index.js",
     "author": {
@@ -14,7 +14,7 @@
     },
     "scripts": {
       "start": "ts-node src/index.ts",
-      "build": "shx rm -rf dist/templates && git clone https://github.com/jeus0630/react-template.git dist/templates/react-template && shx rm -rf dist/templates/react-template/.git"
+      "build": "shx rm -rf templates && git clone https://github.com/jeus0630/react-template.git templates/react-template && shx rm -rf templates/react-template/.git && shx mv templates/react-template/.gitignore templates/react-template/_gitignore"
     },
     "repository": {
       "type": "git",
@@ -40,18 +40,21 @@
       "shelljs": "^0.8.5"
     },
     "keywords": [
-      "react",
-      "cli",
-      "vite",
-      "react testing library",
-      "typescript",
-      "eslint",
-      "prettier",
-      "husky",
-      "react query",
-      "recoil",
-      "storybook",
-      "react router dom"
+      "Vite",
+      "React",
+      "Typescript",
+      "SWC Jest",
+      "React Testing Library",
+      "ESLint",
+      "Prettier",
+      "Husky",
+      "lint staged",
+      "MSW",
+      "React Query",
+      "Recoil",
+      "Emotion",
+      "StoryBook",
+      "React Router DOM"
     ]
   }
   
