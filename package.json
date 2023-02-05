@@ -1,60 +1,59 @@
 {
-    "name": "create-vite-react-template",
-    "version": "0.2.1",
-    "description": "Create a React App Template with ViteJS!",
-    "main": "index.js",
-    "author": {
-        "name": "Zeus",
-        "email": "jeus0630@gmail.com"
-    },
-    "license": "MIT",
-    "bin": {
-      "create-vite-react-template": "./index.js",
-      "cvrt": "./index.js"
-    },
-    "scripts": {
-      "start": "ts-node src/index.ts",
-      "build": "shx rm -rf templates && git clone https://github.com/jeus0630/react-template.git templates/react-template && shx rm -rf templates/react-template/.git && shx mv templates/react-template/.gitignore templates/react-template/_gitignore"
-    },
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/jeus0630/create-vite-react-template.git"
-    },
-    "bugs": {
-      "url": "https://github.com/jeus0630/create-vite-react-template.git/issues"
-    },
-    "homepage": "https://github.com/jeus0630/create-vite-react-template.git#readme",
-    "devDependencies": {
-      "@types/figlet": "^1.5.4",
-      "@types/inquirer": "^8.2.0",
-      "@types/node": "^17.0.23",
-      "@types/shelljs": "^0.8.11",
-      "shx": "^0.3.4",
-      "ts-node": "^10.7.0",
-      "typescript": "^4.6.3"
-    },
-    "dependencies": {
-      "chalk": "4.1.2",
-      "figlet": "^1.5.2",
-      "inquirer": "^8.2.2",
-      "shelljs": "^0.8.5"
-    },
-    "keywords": [
-      "Vite",
-      "React",
-      "Typescript",
-      "SWC Jest",
-      "React Testing Library",
-      "ESLint",
-      "Prettier",
-      "Husky",
-      "lint staged",
-      "MSW",
-      "React Query",
-      "Recoil",
-      "Emotion",
-      "StoryBook",
-      "React Router DOM"
-    ]
-  }
-  
+  "name": "create-vite-react-template",
+  "version": "1.0.0",
+  "description": "Create a React App Template with ViteJS!",
+  "main": "index.js",
+  "author": {
+    "name": "Zeus",
+    "email": "jeus0630@gmail.com"
+  },
+  "license": "MIT",
+  "bin": {
+    "create-vite-react-template": "./index.js",
+    "cvrt": "./index.js"
+  },
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "shx rm -rf templates && git clone https://github.com/jeus0630/react-template.git templates/react-template && shx rm -rf templates/react-template/.git && shx mv templates/react-template/.gitignore templates/react-template/_gitignore"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeus0630/create-vite-react-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeus0630/create-vite-react-template.git/issues"
+  },
+  "homepage": "https://github.com/jeus0630/create-vite-react-template.git#readme",
+  "devDependencies": {
+    "@types/figlet": "^1.5.4",
+    "@types/inquirer": "^8.2.0",
+    "@types/node": "^17.0.23",
+    "@types/shelljs": "^0.8.11",
+    "shx": "^0.3.4",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "chalk": "4.1.2",
+    "figlet": "^1.5.2",
+    "inquirer": "^8.2.2",
+    "shelljs": "^0.8.5"
+  },
+  "keywords": [
+    "Vite",
+    "React",
+    "Typescript",
+    "SWC Jest",
+    "React Testing Library",
+    "ESLint",
+    "Prettier",
+    "Husky",
+    "lint staged",
+    "MSW",
+    "React Query",
+    "Recoil",
+    "Emotion",
+    "StoryBook",
+    "React Router DOM"
+  ]
+}
